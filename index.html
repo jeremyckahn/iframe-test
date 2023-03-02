@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 1em);
+    }
+
+    iframe {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("form");
+      const input = document.querySelector("input");
+      const iframe = document.querySelector("iframe");
+
+      form.addEventListener("submit", (evt) => {
+        evt.preventDefault();
+        const newSrc = input.value;
+        iframe.setAttribute("src", newSrc);
+      });
+    });
+  </script>
+  <div class="container">
+    <form>
+      <input />
+      <input type="submit" value="Update iframe src" />
+    </form>
+    <iframe src="" />
+  </div>
+</body>
